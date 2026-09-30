@@ -7,6 +7,11 @@ chk() { # description, regex
   local out
   out=$(grep -rIn -E --exclude-dir=node_modules --exclude-dir=target --exclude-dir=dist --exclude-dir=out \
         --exclude-dir=.git --exclude=check-public.sh --exclude=Cargo.lock -e "$2" . || true)
+  # the public repo's own name/URL (ElkoAI/elko-relay-sdk) is allowed; strip it before judging a line
+  out=$(printf '%s\n' "$out" | while IFS= read -r l; do
+          [ -z "$l" ] && continue
+          if printf '%s' "$l" | sed -E 's#(ElkoAI/)?elko-relay-sdk##g' | grep -qE -e "$2"; then printf '%s\n' "$l"; fi
+        done)
   if [ -n "$out" ]; then echo "LEAK ($1):"; echo "$out"; bad=1; fi
 }
 chk "private hostname"  'darkfabrik|elko\.ai|jsoprych|elko-relay|elkorelay'

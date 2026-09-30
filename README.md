@@ -46,6 +46,12 @@ with t.timer("db.query_ms"): run_query()
 t.log("error", "checkout failed")      # flushed at exit, or t.close()
 ```
 
+## Using an AI agent
+
+Point a coding agent at this repo and ask it to follow
+[AGENTS-TELEMETRY.md](./AGENTS-TELEMETRY.md): it copies the one matching SDK into your app (pinned to
+tag `v0.1.0`), wires config through env vars, instruments the essentials with bounded tags, and reports what it did.
+
 ## Design rules every SDK follows
 
 - **Never blocks or throws** into your app: calls append to a bounded in-memory
@@ -59,6 +65,7 @@ t.log("error", "checkout failed")      # flushed at exit, or t.close()
 
 ## Docs
 
+- [AGENTS-TELEMETRY.md](./AGENTS-TELEMETRY.md) — instructions for a coding agent to instrument an existing app
 - [SPEC.md](./SPEC.md) — the wire contract (envelope, endpoints, limits, errors)
 - [docs/LAYERS.md](./docs/LAYERS.md) — start with one curl, grow only as needed (L0 → L6)
 - [docs/tagging-and-cardinality.md](./docs/tagging-and-cardinality.md) — what makes a good metric name/tag
