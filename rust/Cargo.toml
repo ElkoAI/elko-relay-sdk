@@ -1,0 +1,11 @@
+[package]
+name = "relay-telemetry"
+version = "0.1.0"
+edition = "2021"
+description = "Tiny Elko Relay telemetry client"
+license = "Apache-2.0"
+
+[dependencies]
+ureq = { version = "2", default-features = false, features = ["tls"] }
+flate2 = "1"
+serde_json = "1"

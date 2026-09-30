@@ -1,0 +1,8 @@
+{
+  "name": "relay/telemetry",
+  "description": "Tiny Elko Relay telemetry client (PHP 8.0+, no dependencies)",
+  "type": "library",
+  "license": "Apache-2.0",
+  "require": { "php": ">=8.0" },
+  "autoload": { "psr-4": { "Relay\\Telemetry\\": "src/" } }
+}

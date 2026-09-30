@@ -1,0 +1,12 @@
+node_modules/
+dist/
+target/
+out/
+bin/
+obj/
+__pycache__/
+*.pyc
+*.egg-info/
+Cargo.lock
+.env
+.DS_Store

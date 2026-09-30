@@ -1,0 +1,19 @@
+{
+  "name": "relay-telemetry",
+  "version": "0.1.0",
+  "description": "Tiny Elko Relay telemetry client (Node 18+, zero dependencies)",
+  "main": "dist/relay-telemetry.js",
+  "types": "dist/relay-telemetry.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "smoke": "tsc -p . && node dist/example.js"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}
